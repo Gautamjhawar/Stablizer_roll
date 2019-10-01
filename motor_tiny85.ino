@@ -1,6 +1,6 @@
 #define d 4                           // enable for motor control
 #define pwm 1
-
+#define d 5     //motor control 2
 
 void setup() {
 

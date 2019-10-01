@@ -4,7 +4,7 @@
 
 void setup() {
 
-  
+  Serial.write(9600);
 }
 
 void loop() {

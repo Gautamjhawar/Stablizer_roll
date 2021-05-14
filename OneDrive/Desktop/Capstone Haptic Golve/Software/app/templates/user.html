@@ -1,0 +1,26 @@
+<html>
+    <head>
+        <title>Db test</title>
+        <link rel="icon" href="{{url_for('static',filename='images/leprosy-icon.ico')}}" type="image/x-icon">
+    </head>
+    <body>
+        <div>
+            <div>
+                {% for user in users %}
+                <dl>
+                    <dt>User id: {{user.user_id}}</dt>
+                    <dt>First Name: {{user.first_name}}</dt>
+                    <dt>Last Name: {{user.last_name}}</dt>
+                    <dt>Email: {{user.email}}</dt>
+                    <dt>DOB date: {{user.dob_d}}</dt>
+                    <dt>DOB month: {{user.dob_m}}</dt>
+                    <dt>DOB year: {{user.dob_y}}</dt>
+                    <dt>Gender : {{user.gender}}</dt>
+                </dl>
+                {% else %}
+                    <H3> No data</H3>
+                {% endfor %}
+            </div>
+        </div>
+    </body>
+</html>

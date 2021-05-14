@@ -1,0 +1,44 @@
+<html>
+<head>
+    <title>Login</title>
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/login.css')}}"/>
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/bootstrap.min.css')}}">
+    <link rel="icon" href="{{url_for('static',filename='images/leprosy-icon.ico')}}" type="image/x-icon">
+</head>
+<body>
+    {% with messages=get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+        {% for category, message in messages%}
+        <div class="alert alert-{{category}}"style="text-align: center;">
+            <p>{{message}}</p>
+        </div>
+        {%endfor%}
+    {% endif %}
+    {% endwith %}
+    <div>
+        <form class="login" method="POST">
+            <!-- <input type="text" placeholder="Username">
+            <input type="password" placeholder="Password">
+            <button>Login</button> -->
+            {{ form.hidden_tag() }}
+            {{ form.email }}
+            {%for error in form.email.errors %}
+             <span class="error-message">{{error}}</span>
+            {% endfor %}
+            {{ form.password }}
+            {%for error in form.password.errors %}
+             <span class="error-message">{{error}}</span>
+            {% endfor %}
+            {{ form.submit() }}
+            <a class="return-b" href="/register"><H5>Not registered? Click here</H5></a>
+        </form>
+    </div>      
+    
+    <div >
+        <div>
+            <a href="/home"><H5 style="color: black;">Home</H5><img src="{{url_for('static',filename='images/leprosy-icon.jpg')}}" height=60px width=60px></a>
+        </div>
+    </div>
+    {% include "includes/footer.html" %}
+</body>
+</html>

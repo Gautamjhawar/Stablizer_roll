@@ -1,0 +1,126 @@
+<html>
+    <head>
+        <title>Register</title>
+        <link rel="stylesheet" href="{{ url_for('static',filename='css/register.css')}}"/>
+        <link rel="stylesheet" href="{{ url_for('static',filename='css/main.css')}}"/>
+        <!-- <link rel="stylesheet" href="{{ url_for('static',filename='css/bootstrap.min.css')}}"> -->
+        <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"; integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
+        <link rel="icon" href="{{url_for('static',filename='images/leprosy-icon.ico')}}" type="image/x-icon">
+    </head>
+    <body>
+        {% with messages=get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+        {% for category, message in messages%}
+        <div class="alert alert-{{category}}"style="text-align: center;">
+            <p>{{message}}</p>
+        </div>
+        {%endfor%}
+    {% endif %}
+    {% endwith %}
+        <a href="/home"><img src="{{url_for('static',filename='images/leprosy-icon.jpg')}}" height=60px width=60px></a>
+        <div class="container">
+            <form method="POST">
+                {{ form.hidden_tag() }}
+            <div class="row">
+                <h4>Account</h4>
+                <div class="input-group input-group-icon">
+                    {{ form.first_name }}
+                <div class="input-icon"><i class="fa fa-user"></i></div>
+                </div>
+                <div class="input-group input-group-icon">
+                    {{ form.last_name }}
+                    <div class="input-icon"><i class="fa fa-user"></i></div>
+                </div>
+                <div class="input-group input-group-icon">
+                    {{ form.email }}
+                <div class="input-icon"><i class="fa fa-envelope"></i></div>
+                </div>
+                <div class="input-group input-group-icon">
+                    {{ form.uPassword }}
+                <div class="input-icon"><i class="fa fa-key"></i></div>
+                </div>
+            </div>
+            <!-- <div class="row">
+                <h4>Upload Profile Picture</h4>
+                    <div class="input-group">
+                        {{form.prodp}}
+                    </div>
+            </div> -->
+            <div class="row">
+                <div class="col-half">
+                <h4>Date of Birth</h4>
+                <div class="input-group">
+                    <div class="col-third">
+                        {{ form.dob_d }}
+                    </div>
+                    <div class="col-third">
+                        {{ form.dob_m }}
+                    </div>
+                    <div class="col-third">
+                        {{ form.dob_y }}
+                    </div>
+                </div>
+                </div>
+                <div class="col-half">
+                <h4>Gender</h4>
+                <div class="input-group">
+                    {{ form.gender }}
+                    <!-- <input type="radio" name="gender" value="male" id="gender-male"/>
+                    <label for="gender-male">Male</label>
+                    <input type="radio" name="gender" value="female" id="gender-female"/>
+                    <label for="gender-female">Female</label> -->
+                </div>
+                </div>
+            </div>
+            <div class="row">
+                <h4>Medical Qualification Details</h4>
+                    <div class="input-group">
+                        <!-- <input type="radio" name="designation" value="doctor" id="Qualtype-doc" checked="true"/>
+                        <label for="Qualtype-doc"><span><i class="fa fa-cc-visa"></i>Doctor</span></label>
+                        <input type="radio" name="designation" value="physiotherapy" id="Qualtype-phy"/>
+                        <label for="Qualtype-phy"> <span><i class="fa fa-cc-paypal"></i>Physiotherapist</span></label> -->
+                        {{form.MedQual}}
+                    </div>
+                <div class="input-group input-group-icon">
+                    <!-- <input type="text" placeholder="Medical licence number"/> -->
+                    {{form.MedLicN}}
+                    <div class="input-icon"><i class="fa fa-credit-card"></i></div>
+                </div>
+            </div>
+            <div class="row">
+                <h4>Clinic Address</h4>
+                <div class="input-group input-group-icon">
+                    <!-- <input type="text" placeholder="Address"/> -->
+                    {{form.c_add}}
+                    <div class="input-icon"><i class="fa fa-address"></i></div>
+                </div>
+                <div class="input-group input-group-icon">
+                    <!-- <input type="text" placeholder="City"/> -->
+                    {{form.c_city}}
+                    <div class="input-icon"><i class="fa fa-address"></i></div>
+                </div>
+            </div>
+            <div class="col-half input-group input-group-icon">              
+                <!-- <input type="text" placeholder="Country"/> -->
+                {{form.c_country}}
+                <div class="input-icon"><i class="fa fa-address"></i></div>
+            </div>
+            <div class="col-half input-group input-group-icon">        
+                <!-- <input type="text" placeholder="Pincode"/> -->
+                {{form.c_pincode}}
+                <div class="input-icon"><i class="fa fa-address"></i></div>
+            </div>
+            <div class="row">
+                <h4>Terms and Conditions</h4>
+                <div class="input-group">
+                <input type="checkbox" id='terms'>
+                <label for="terms">I accept the terms and conditions for signing up to this service, and hereby confirm I have read the privacy policy.</label>
+                </div>
+            </div>
+            <!-- <button class="input-group" style="border-top-right-radius:1; column-fill: #7ed321;">Submit</button> -->
+            {{form.submit()}}
+            </form>
+        </div>
+        
+    </body>
+</html>

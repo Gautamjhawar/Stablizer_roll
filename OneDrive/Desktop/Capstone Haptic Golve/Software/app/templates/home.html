@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Burn Protect</title>
+        <link rel="stylesheet" href="{{ url_for('static',filename='css/bootstrap.min.css')}}">
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+         <link rel="stylesheet" href="{{ url_for('static',filename='css/main.css')}}"/>  
+         <link rel="icon" href="{{url_for('static',filename='images/leprosy-icon.ico')}}" type="image/x-icon">
+    </head>
+    <body>
+      {% with messages=get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+          {% for category, message in messages%}
+          <div class="alert alert-{{category}}"style="text-align: center;padding-top:60px;">
+              <p>{{message}}</p>
+          </div>
+          {%endfor%}
+      {% endif %}
+      {% endwith %}
+        <!-- Navbar (sit on top) -->
+        <div class="w3-top">
+          <div class="w3-bar w3-white w3-card" id="myNavbar">
+            <a href="/home"><img src="/static/images/leprosy-icon.jpg" height=60px width=60px></a>
+            <!-- Right-sided navbar links -->
+            <div class="w3-right w3-hide-small">
+              <a href="/about" class="w3-bar-item w3-button">ABOUT</a>
+                        <a href="{{url_for('login')}}" class="w3-bar-item w3-button"> LOGIN</a>
+                        <a href="{{url_for('register')}}" class="w3-bar-item w3-button"> REGISTER</a>
+                        <a href="{{url_for('report')}}" class="w3-bar-item w3-button"> REPORT</a>
+                        <a href="{{url_for('poster')}}" class="w3-bar-item w3-button"> POSTER</a>
+                        <a href="{{url_for('paper')}}" class="w3-bar-item w3-button"> PAPER</a>
+            </div>
+      
+          </div>
+        </div>>  
+        <header class="ktest " >
+          <img src="{{url_for('static',filename='images/leprosy.webp')}}" height = 950px width = 1920px >
+          <div class="w3-display-left w3-text-white" style="padding:48px">
+            <span class="w3-jumbo w3-hide-small">Protect what matters</span><br>
+            <span class="w3-xxlarge w3-hide-large w3-hide-medium">Protect something that matters</span><br>
+            <span class="w3-large">Stop wasting valuable time and protect leprotic hands from burns
+              <br>and measure the progress of physiotherapy at the same time</span>
+            <p><a href="{{url_for('register')}}" class="w3-button w3-white w3-padding-large w3-large w3-margin-top w3-opacity w3-hover-opacity-off">REGISTER</a></p>
+            <span class="w3-large">Alredy registered?<a href="{{url_for('login')}}" >LOGIN</a></span>
+          </div> 
+          
+        </header>
+          
+          
+          {% include "includes/footer.html" %}
+
+    </body>
+</html>

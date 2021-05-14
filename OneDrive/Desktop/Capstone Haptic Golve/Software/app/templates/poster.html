@@ -1,0 +1,19 @@
+<html>
+    <head>
+        <title>Register</title>
+        <link rel="stylesheet" href="{{ url_for('static',filename='css/register.css')}}"/>
+        <link rel="stylesheet" href="{{ url_for('static',filename='css/main.css')}}"/>
+        <!-- <link rel="stylesheet" href="{{ url_for('static',filename='css/bootstrap.min.css')}}"> -->
+        <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"; integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
+        <link rel="icon" href="{{url_for('static',filename='images/leprosy-icon.ico')}}" type="image/x-icon">
+    </head>
+    <body>
+        <div class="col-half">
+            <a href="{{url_for('home')}}" ><h3 style="text-align:left">Press here to go back to Home page</h3></a>
+        </div>
+        <div class="col-half">
+            <a href="https://github.com/Gautamjhawar/Capstone" ><h3 style="text-align:right">GitHub Repository link</h3></a>
+        </div>
+        <embed src="{{url_for('static',filename='17BIS0042_Poster_Draft.pdf')}}" width="1920px" height="2100px" style="padding: none;" />
+    </body>
+</html>
